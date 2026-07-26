@@ -36,6 +36,7 @@ The application has been refactored into a cleaner, modular structure while intr
 - Check Puzzle button
 - Hint button
 - Puzzle completion message
+- Guaranteed unique Sudoku solution
 
 ### Game Features
 
@@ -62,10 +63,18 @@ The application has been refactored into a cleaner, modular structure while intr
 starter/
 │
 ├── app.py
-├── sudoku_logic.py
-├── requirements.txt
 ├── instruction.md
+├── prompts.json
 ├── README.md
+├── requirements.txt
+├── pytest.ini
+│
+├── sudoku/
+│   ├── generator.py
+│   ├── solver.py
+│   ├── validator.py
+│   ├── difficulty.py
+│   ├── utils.py
 │
 ├── templates/
 │   └── index.html
@@ -119,7 +128,7 @@ python app.py
 Open
 
 ```
-http://127.0.0.1:5000
+http://127.0.0.1:8080
 ```
 
 ---
@@ -144,6 +153,8 @@ GitHub Copilot was used for:
 - Local storage leaderboard
 - Responsive layout improvements
 - Dark mode implementation
+
+Copilot suggestions were reviewed before acceptance. Some suggestions were modified or rejected to better fit the project requirements and maintain code quality.
 
 All AI-generated code was reviewed, tested, and modified where necessary.
 
