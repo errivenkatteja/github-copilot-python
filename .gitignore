@@ -1,6 +1,15 @@
-# Ignore system files
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+
+# macOS
 .DS_Store
+
+# Windows
 Thumbs.db
 
-# Ignore Python virtual environment
-.venv/
+# Pytest cache
+.pytest_cache/
