@@ -29,3 +29,32 @@ def fill_board(board):
                 return False
 
     return True
+
+
+
+def count_solutions(board):
+    """Count the number of solutions for a Sudoku board.
+    Stops after finding two solutions.
+    """
+    count = 0
+
+    def solve():
+        nonlocal count
+
+        if count >= 2:
+            return
+
+        for row in range(SIZE):
+            for col in range(SIZE):
+                if board[row][col] == EMPTY:
+                    for number in range(1, SIZE + 1):
+                        if is_safe(board, row, col, number):
+                            board[row][col] = number
+                            solve()
+                            board[row][col] = EMPTY
+                    return
+
+        count += 1
+
+    solve()
+    return count

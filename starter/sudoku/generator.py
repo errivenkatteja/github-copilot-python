@@ -10,7 +10,7 @@
 
 import random
 
-from .solver import fill_board
+from .solver import fill_board, count_solutions
 from .utils import create_empty_board, deep_copy, SIZE, EMPTY
 
 # ==========================================================
@@ -22,20 +22,34 @@ from .utils import create_empty_board, deep_copy, SIZE, EMPTY
 # ==========================================================
 
 def remove_cells(board, clues):
-    """Remove numbers from a solved board."""
+    """
+    Remove numbers while ensuring the puzzle still has
+    exactly one solution.
+    """
 
-    # Calculate how many cells should be emptied
-    attempts = SIZE * SIZE - clues
+    cells_to_remove = SIZE * SIZE - clues
 
-    while attempts > 0:
-        # Select a random cell
+    while cells_to_remove > 0:
+
         row = random.randrange(SIZE)
         col = random.randrange(SIZE)
 
-        # Remove the value only if the cell is not already empty
-        if board[row][col] != EMPTY:
-            board[row][col] = EMPTY
-            attempts -= 1
+        if board[row][col] == EMPTY:
+            continue
+
+        # Save the value before removing it
+        backup = board[row][col]
+        board[row][col] = EMPTY
+
+        # Make a copy and test uniqueness
+        test_board = deep_copy(board)
+
+        if count_solutions(test_board) != 1:
+            # More than one solution -> restore the cell
+            board[row][col] = backup
+        else:
+            # Safe to remove
+            cells_to_remove -= 1
 
 # ==========================================================
 # Generate Sudoku Puzzle
