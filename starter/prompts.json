@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Testing Framework",
+    "prompt": "Set up a PyTest testing framework for this Flask application."
+  },
+  {
+    "title": "Unique Sudoku Solution",
+    "prompt": "Modify the Sudoku generator so every puzzle has exactly one unique solution."
+  },
+  {
+    "title": "Difficulty Levels",
+    "prompt": "Add Easy, Medium and Hard difficulty levels based on the number of clues."
+  },
+  {
+    "title": "Live Validation",
+    "prompt": "Add live validation so invalid entries are highlighted immediately."
+  },
+  {
+    "title": "Leaderboard",
+    "prompt": "Store the top 10 fastest Sudoku scores in localStorage."
+  },
+  {
+    "title": "Dark Mode",
+    "prompt": "Implement a Dark Mode toggle using JavaScript and CSS."
+  },
+  {
+    "title": "Responsive Design",
+    "prompt": "Improve the Sudoku layout for desktop and mobile screens."
+  }
+]
